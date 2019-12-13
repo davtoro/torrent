@@ -29,7 +29,7 @@ func (cl *Client) forwardPort() {
 	cl.lock()
 	cl.logger.Printf("discovered %d upnp devices", len(ds))
 	port := cl.incomingPeerPort()
-	id := c1.config.UpnPID
+	id := cl.config.UpnPID
 	cl.unlock()
 	for _, d := range ds {
 		go cl.addPortMapping(d, upnp.TCP, port, id)
